@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+zappa = "*"
+django-environ = "*"
+django-npm = "*"
+django-pipeline = "*"
+jsmin = "*"
+awscli = "*"
+psycopg2-binary = "*"
+django-tables2 = "*"
+django-filter = "*"
+
+[requires]
+python_version = "3.6"

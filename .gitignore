@@ -1,0 +1,4 @@
+.vscode/
+*/.vscode/
+django_web/.myenv
+django_web/zappa_settings.json
