@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from bike_stations.views import show_bike_locs
+from bike_stations.views import BikeLocList
 
 urlpatterns = [
-    path('', show_bike_locs),
+    path('', BikeLocList.as_view()),
 ]

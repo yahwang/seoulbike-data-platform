@@ -9,13 +9,12 @@ verify_ssl = true
 django = "*"
 zappa = "*"
 django-environ = "*"
-django-npm = "*"
-django-pipeline = "*"
-jsmin = "*"
 awscli = "*"
 psycopg2-binary = "*"
 django-tables2 = "*"
 django-filter = "*"
+djangorestframework = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.6"
