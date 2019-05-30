@@ -12,9 +12,10 @@ django-environ = "*"
 awscli = "*"
 psycopg2-binary = "*"
 django-tables2 = "*"
-django-filter = "*"
 djangorestframework = "*"
 django-extensions = "*"
+django-bootstrap-form = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.6"
