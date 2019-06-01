@@ -1,0 +1,19 @@
+.row{
+    margin-bottom:10px;
+}
+form{
+    margin-bottom: 0px;
+}
+.filtered{
+    color: white;
+    font-size: 16px;
+    background-color: rgba(78,97,255,.8);
+    border-color: rgba(78,97,255,.8);
+    padding: 3px 6px;
+    border: 0 solid transparent;
+    border-radius: .28571429rem;
+}
+.material-icons{
+    font-size:22px;
+    vertical-align: middle
+}
