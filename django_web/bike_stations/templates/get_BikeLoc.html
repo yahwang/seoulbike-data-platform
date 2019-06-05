@@ -43,13 +43,13 @@
         </div>
     </form>
     {% if filters %}
-    {% if filters.st_cradle_gte != '' %}
+    {% if filters.st_cradle_lte and filters.st_cradle_gte != '' %}
     <a class="filtered"><i class="material-icons">search</i> CRADLE >= {{ filters.st_cradle_gte }}</a>
     {% endif %}
-    {% if filters.st_cradle_lte != '' %}
+    {% if filters.st_cradle_lte and filters.st_cradle_lte != '' %}
     <a class="filtered"><i class="material-icons">search</i> CRADLE <= {{ filters.st_cradle_lte }}</a>
     {% endif %}
-    {% if filters.st_gu != '' %}
+    {% if filters.gu and filters.st_gu != '' %}
     <a class="filtered"><i class="material-icons">search</i> ADDR_GU = {{ filters.st_gu }}</a>
     {% endif %}
 {% endif %}
