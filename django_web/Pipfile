@@ -18,6 +18,8 @@ django-bootstrap-form = "*"
 django-filter = "*"
 whitenoise = "*"
 gunicorn = "*"
+gevent = "*"
+django-rest-swagger = "*"
 
 [requires]
 python_version = "3.6"

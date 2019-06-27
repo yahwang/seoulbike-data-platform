@@ -5,4 +5,5 @@ django_web/.prod_env
 django_web/zappa_settings.json
 */__pycache__/
 django_web/*/__pycache__/
+django_web/Pipfile.lock
 staticfiles/
