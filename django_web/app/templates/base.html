@@ -1,3 +1,5 @@
+{% load static %}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,9 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% block page_head %}{% endblock %}
 </head>
-<body>
+    <body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo left">Seoul Bike</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                <ul class="hide-on-med-and-down">
+                    <li id="dashboard"><a href="{% url 'bike_dashboard' %}">Dashboard</a></li>
+                    <li id="stations"><a href="{% url 'st_list' %}">Stations Info</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li id="dashboard"><a href="{% url 'bike_dashboard' %}">Dashboard</a></li>
+        <li id="stations"><a href="{% url 'st_list' %}">Stations Info</a></li>
+    </ul>
+                    
     <div class="container">
         {% block page_content %}{% endblock %}
     </div>
@@ -17,5 +37,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        word = window.location.pathname.split('/')[1];
+        $('#' + word).addClass('active');
+        $('.sidenav').sidenav();
+    });
+    </script>
     {% block javascript %}{% endblock %}
 </body>

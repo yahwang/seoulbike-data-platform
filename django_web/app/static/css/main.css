@@ -1,0 +1,12 @@
+nav{
+    background-color: green;
+}
+.nav-wrapper .brand-logo{
+    margin-left: 10px;
+}
+.nav-wrapper ul{
+    margin-left: 200px;
+}
+.nav-wrapper ul li a{
+    font-size: 20px;
+}
