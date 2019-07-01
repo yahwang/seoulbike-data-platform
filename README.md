@@ -27,6 +27,10 @@ Using Custom Docker
 
 https://github.com/yahwang/docker-airflow
 
+[DAG 파일](https://github.com/yahwang/seoulbike-data-platform/tree/master/dags/api_to_save.py)
+
+<img src="./imgs/airflow_dag.jpg" alt="dag">
+
 > superset 0.28.1
 
 Using Custom Docker
