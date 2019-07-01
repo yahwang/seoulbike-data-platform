@@ -1,5 +1,9 @@
 # seoulbike-data-platform
 
+## Structure
+
+<img src="./imgs/structure.png" alt="png">
+
 ## Requirements
 
 > 따릉이 자전거 데이터
