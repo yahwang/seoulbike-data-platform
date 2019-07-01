@@ -1,5 +1,13 @@
 # seoulbike-data-platform
 
+서울 자전거 따릉이 데이터 플랫폼 구축
+
+## Description
+
+Dashboard : 실시간 대여소 잔여 자전거 대수 ( 현재는 1분 단위로 구성 )
+
+Stations Info : 대여소 정보
+
 ## Structure
 
 <img src="./imgs/structure.png" alt="png">
