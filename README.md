@@ -1,19 +1,21 @@
 # seoulbike-data-platform
 
-## CREATE
+
+### Stations Info CRUD
+
+> CREATE
 
 <img src="./imgs/bike_2.jpg" width="400px" alt="web">
 
-## RETRIEVE
+> RETRIEVE
 
-<img src="./imgs/bike_1.jpg" width="600px" alt="web">
+<img src="./imgs/bike_1.jpg" width="500px" alt="web">
 
-### FILTER
+> FILTER
 
-<img src="./imgs/bike_4.jpg" width="600px" alt="web">
+<img src="./imgs/bike_4.jpg" width="500px" alt="web">
 
+> UPDATE
 
-## UPDATE
-
-<img src="./imgs/bike_3.jpg" width="400px" alt="web">
+<img src="./imgs/bike_3.jpg" width="300px" alt="web">
 
