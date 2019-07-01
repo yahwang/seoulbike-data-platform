@@ -3,19 +3,13 @@
 
 ### Stations Info CRUD
 
-> CREATE
+> RETRIEVE & FILTER
 
-<img src="./imgs/bike_2.jpg" width="400px" alt="web">
+<img src="./imgs/bike_1.jpg" alt="web">
 
-> RETRIEVE
+> CREATE & UPDATE
 
-<img src="./imgs/bike_1.jpg" width="500px" alt="web">
+<img src="./imgs/bike_2.jpg" alt="web">
 
-> FILTER
 
-<img src="./imgs/bike_4.jpg" width="500px" alt="web">
-
-> UPDATE
-
-<img src="./imgs/bike_3.jpg" width="300px" alt="web">
 
