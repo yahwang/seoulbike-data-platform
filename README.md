@@ -19,7 +19,7 @@
 
 > CREATE & UPDATE
 
-<img src="./imgs/screen_2.jpg" width="800px" alt="sc2">
+<img src="./imgs/screen_2.jpg" alt="sc2">
 
 
 
