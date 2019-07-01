@@ -3,7 +3,11 @@
 
 ### preview
 
+> Dashboard
+
 <img src="./imgs/dashboard.gif" alt="dashboard">
+
+> Filter
 
 <img src="./imgs/filter.gif" alt="filter">
 
