@@ -1,7 +1,11 @@
 # seoulbike-data-platform
 
+
+### preview
+
 <img src="./imgs/dashboard.gif" alt="dashboard">
 
+<img src="./imgs/filter.gif" alt="filter">
 
 ### Stations Info CRUD
 
