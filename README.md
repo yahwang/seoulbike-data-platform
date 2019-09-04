@@ -10,7 +10,14 @@ Stations Info : 대여소 정보
 
 ## Structure
 
+> Version 1
+
 <img src="./imgs/structure.png" alt="png">
+
+> Version 2
+
+<img src="./imgs/structure_v2.png" alt="png2">
+
 
 ## Requirements
 
@@ -33,7 +40,7 @@ API 제공 URL : http://data.seoul.go.kr/dataList/datasetView.do?infId=OA-15493&
     django-tables2==2.0.6
     djangorestframework==3.9.4
 
-> airflow 1.10.3
+> airflow 1.10.3 For Version 1
 
 Using Custom Docker
 
