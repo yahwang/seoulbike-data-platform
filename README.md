@@ -18,6 +18,17 @@ Stations Info : 대여소 정보
 
 <img src="./imgs/structure_v2.png" alt="png2">
 
+> Database
+
+<img src="./imgs/db_structure.png" alt="png3">
+
+#### INDEX
+
+``` sql
+CREATE INDEX idx_bike_id ON bike_realtime_log_tz(st_id)
+CREATE INDEX idx_realtime ON bike_realtime_log_tz(log_time)
+CREATE INDEX idx_id_realtime ON bike_realtime_log_tz(st_id, log_time)
+```
 
 ## Requirements
 
