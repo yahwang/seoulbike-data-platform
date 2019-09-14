@@ -4,14 +4,13 @@ import json
 import os
 from datetime import datetime
 import psycopg2
-from psycopg2.extras import RealDictCursor
-import logging
+import io
 
 def extract_content_id(st_data): 
     if '.' in st_data['stationName']:
         st_data['stationName'] = st_data['stationName'].split('.')[0]
     else:
-        st_data['stationName'] = 0
+        st_data['stationName'] = '0'
     return st_data
 
 def lambda_handler(event, context):
@@ -28,8 +27,8 @@ def lambda_handler(event, context):
     if response1.status_code==200 and response2.status_code==200:
         rent_api = response1.json()['rentBikeStatus']['row'] + response2.json()['rentBikeStatus']['row']
         data = [ dict( list(station.items())[:3] ) for station in rent_api ]
-        data = [extract_content_id(i) for i in list(data)]
-        rows = [ [st_data['stationName'], st_data['rackTotCnt'],st_data['parkingBikeTotCnt'], file_date] for st_data in data ]
+        data = [ extract_content_id(i) for i in list(data) ]
+        rows = [ [st_data['stationName'], st_data['rackTotCnt'],st_data['parkingBikeTotCnt'], str(file_date)] for st_data in data ]
         
         
     # INSERT DATA TO POSTGRES DB
@@ -38,10 +37,16 @@ def lambda_handler(event, context):
                                user=os.environ['db_user'],
                                password=os.environ['db_pw'])
 
-        cursor = conn.cursor(cursor_factory = RealDictCursor)
-        query = "INSERT INTO bike_realtime_log_tz(st_id, st_cradle, st_parking, log_time) values (%s, %s, %s, %s);"
-        cursor.executemany(query, rows)
+        cursor = conn.cursor()
+        # USING StringIO AND copy_from(COPY command) FOR PERFORMANCE
+        csv_file_like_object = io.StringIO()
+        for row in rows:
+            csv_file_like_object.write(','.join(row) + '\n')
+        csv_file_like_object.seek(0)
+        cursor.copy_from(csv_file_like_object, 'bike_realtime_log_tz', sep=',', columns=['st_id','st_cradle','st_parking','log_time'])
+        
         conn.commit()
+        csv_file_like_object.close()
         conn.close()
         
         return { 'statusCode': 200, 'body': json.dumps('Insert Complete') }
