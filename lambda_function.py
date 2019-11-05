@@ -32,21 +32,23 @@ def lambda_handler(event, context):
     response2 = requests.get(f'http://openapi.seoul.go.kr:8088/{auth_key}/json/bikeList/1001/2000')
     file_date = datetime.now(tz=local_tz)
     
-    
     # MAKE DATA AVALIABLE TO INSERT TO DB 
     if response1.status_code==200 and response2.status_code==200:
-        rent_api = response1.json()['rentBikeStatus']['row'] + response2.json()['rentBikeStatus']['row']
-        data = [ dict( list(station.items())[:3] ) for station in rent_api ]
-        data = [ extract_content_id(i) for i in list(data) ]
-        rows = [ [st_data['stationName'], st_data['rackTotCnt'],st_data['parkingBikeTotCnt'], str(file_date)] for st_data in data ]
-        
+        try:
+            rent_api = response1.json()['rentBikeStatus']['row'] + response2.json()['rentBikeStatus']['row']
+            data = [ dict( list(station.items())[:3] ) for station in rent_api ]
+            data = [ extract_content_id(i) for i in list(data) ]
+            rows = [ [st_data['stationName'], st_data['rackTotCnt'],st_data['parkingBikeTotCnt'], str(file_date)] for st_data in data ]
+        except:
+            raise LambdaError('API DATA IS WRONG')
         
     # INSERT DATA TO POSTGRES DB
         try:
             conn = psycopg2.connect(database="seoulbike",
                                    host=os.environ['db_host'], 
                                    user=os.environ['db_user'],
-                                   password=os.environ['db_pw'])
+                                   password=os.environ['db_pw'],
+                                   connect_timeout=1)
     
             cursor = conn.cursor()
             # USING StringIO AND copy_from(COPY command) FOR PERFORMANCE
@@ -62,16 +64,15 @@ def lambda_handler(event, context):
             
             return { 'statusCode': 200, 'body': json.dumps('Insert Complete') }
         
-        except Exception:
-            raise LambdaError('DB UPLOAD FAILED')
+        except:
+            raise LambdaError('DB UPLOAD FAILED!!')
 
     else:
         raise LambdaError('GET API FAILED')
-
-
 
 class LambdaError(Exception):
  
     def __init__(self, msg):
         super().__init__(msg)
         msg_to_slack(msg)
+        
