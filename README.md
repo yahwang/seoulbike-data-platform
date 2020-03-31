@@ -16,7 +16,7 @@ Stations Info : 대여소 정보
 
 > Version 2
 
-<img src="./imgs/structure_v2.png" alt="png2">
+<img src="./imgs/structure_v2_2.jpg" alt="png2">
 
 > Database
 
