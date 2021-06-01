@@ -50,7 +50,7 @@ tqdm==4.19.1
 troposphere==2.4.7
 Unidecode==1.0.23
 uritemplate==3.0.0
-urllib3==1.25.3
+urllib3==1.26.5
 Werkzeug==0.15.4
 whitenoise==4.1.2
 wsgi-request-logger==0.4.6
